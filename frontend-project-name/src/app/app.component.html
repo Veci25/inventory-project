@@ -1,0 +1,19 @@
+<button mat-raised-button color="primary" (click)="onAddProduct()">Add Product</button>
+
+
+<app-product-table
+  [products]="products"
+  (editProduct)="onEditProduct($event)"
+  (deleteProduct)="onDeleteProduct($event)"
+  (viewDetails)="viewDetails($event)"> 
+</app-product-table>
+
+
+<app-product-form
+  *ngIf="showForm"
+  [product]="selectedProduct"
+  (formSubmit)="onFormSubmit($event)"
+  (cancel)="onFormCancel()">
+</app-product-form>
+
+

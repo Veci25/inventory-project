@@ -1,0 +1,11 @@
+<h2 mat-dialog-title>Product Details</h2>
+<div mat-dialog-content>
+  <p><strong>Name:</strong> {{ product.name }}</p>
+  <p><strong>Description:</strong> {{ product.description || 'N/A' }}</p>
+  <p><strong>Price:</strong> {{ product.price }}</p>
+  <p><strong>Quantity in Stock:</strong> {{ product.quantityInStock }}</p>
+  <p><strong>Category:</strong> {{ product.category || 'N/A' }}</p>
+</div>
+<div mat-dialog-actions align="end">
+  <button mat-button (click)="close()">Close</button>
+</div>

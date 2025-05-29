@@ -1,0 +1,32 @@
+<form [formGroup]="productForm" (ngSubmit)="submitForm()">
+  <h3>{{ product ? 'Edit Product' : 'Add Product' }}</h3>
+
+  <label for="name">Name *</label>
+  <input id="name" formControlName="name" type="text" />
+  <div *ngIf="productForm.get('name')?.invalid && productForm.get('name')?.touched" class="error-message">
+    Name is required.
+  </div>
+
+  <label for="description">Description</label>
+  <textarea id="description" formControlName="description"></textarea>
+
+  <label for="price">Price *</label>
+  <input id="price" formControlName="price" type="number" min="0" />
+  <div *ngIf="productForm.get('price')?.invalid && productForm.get('price')?.touched" class="error-message">
+    Price must be 0 or more.
+  </div>
+
+  <label for="quantityInStock">Quantity In Stock *</label>
+  <input id="quantityInStock" formControlName="quantityInStock" type="number" min="0" />
+  <div *ngIf="productForm.get('quantityInStock')?.invalid && productForm.get('quantityInStock')?.touched" class="error-message">
+    Quantity must be 0 or more.
+  </div>
+
+  <label for="category">Category</label>
+  <input id="category" formControlName="category" type="text" />
+
+  <div class="buttons">
+    <button type="submit" class="submit-btn" [disabled]="productForm.invalid">Save</button>
+    <button type="button" class="cancel-btn" (click)="onCancel()">Cancel</button>
+  </div>
+</form>

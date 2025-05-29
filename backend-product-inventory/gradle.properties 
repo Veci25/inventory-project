@@ -1,0 +1,11 @@
+# Gradle optimization
+org.gradle.caching=true
+org.gradle.parallel=true
+org.gradle.configureondemand=true
+
+# Memory settings (prevents lock contention)
+org.gradle.jvmargs=-Xmx2g -XX:MaxMetaspaceSize=512m -Dfile.encoding=UTF-8
+
+# Daemon settings (critical for locking issues)
+org.gradle.daemon=true
+org.gradle.daemon.idletimeout=300000
